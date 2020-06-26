@@ -118,7 +118,7 @@ def reconcile_portfolio(
 
             if symbol in positions:
                 # symbol desired and already held, but may need to adjust
-                diff = shares - positions["symbol"]["qty"]
+                diff = shares - positions[symbol]["qty"]
 
                 if diff != 0:
                     place_order(symbol, diff, endpoint, broker_api_key, broker_api_secret)
