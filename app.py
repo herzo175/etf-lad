@@ -10,6 +10,8 @@ def main():
     # Get top symbols
     filtered_pool = securities.filter_symbols_lin_reg(pool, max_returned=POOL_SIZE)
 
+    print(f"Target pool: {filtered_pool}")
+
     # reconcile portfolio to match pool
     if broker.is_market_open():
         broker.reconcile_portfolio(filtered_pool)
