@@ -8,7 +8,7 @@ from iexfinance.stocks import Stock, get_historical_data
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import r2_score
 
-from config import IEX_KEY
+from config import IEX_KEY, LOOKBACK_PERIOD
 
 
 def get_zacks_symbols():
@@ -36,7 +36,7 @@ def get_zacks_symbols():
     ]
 
 
-def get_last_closes(symbol, days_back=21, token=IEX_KEY):
+def get_last_closes(symbol, days_back=LOOKBACK_PERIOD, token=IEX_KEY):
     end = datetime.now()
     start = datetime.now() - timedelta(days=days_back)
     
