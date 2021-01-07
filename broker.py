@@ -107,7 +107,12 @@ def reconcile_portfolio(
 
     target_symbols_set = set(target_symbols)
     combined_symbols = target_symbols_set | set(positions)
-    target_symbol_value = buying_power / len(target_symbols_set)
+    num_target_symbols = len(target_symbols_set)
+
+    if num_target_symbols < 1:
+        target_symbol_value = 0
+    else:
+        target_symbol_value = buying_power / len(target_symbols_set)
 
     # TODO: also check open orders
     for symbol in combined_symbols:
