@@ -31,8 +31,8 @@ def get_zacks_symbols():
     quote_pattern = re.compile(r"rel=\"(\w+)\"")
 
     return [
-        quote_pattern.search(dt[1]).group(1)
-        for dt in json.loads(response.text)["data"]
+        quote_pattern.search(button[0]).group(1)
+        for button in json.loads(response.text)["data"]
     ]
 
 
